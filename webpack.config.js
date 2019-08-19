@@ -1,11 +1,3 @@
-// module.exports = {
-//   entry: "./src/index.js",
-//   output: {
-//     filename: "dist/bundle.js"
-//   },
-//   devtool: "sourcemap"
-// };
-
 const path = require('path');
 
 module.exports = {
@@ -14,5 +6,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }]
   }
 };
